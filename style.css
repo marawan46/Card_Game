@@ -1,0 +1,300 @@
+
+* {
+    box-sizing: border-box;
+    
+}
+
+body {
+    background-color: #313131;
+    margin: 0;
+    padding: 0;
+}
+
+.head-title {
+    font-family: "Barriecito", system-ui;
+    font-style: normal;
+    font-weight: 300;
+    display: flex;
+    align-items: center; /* Center items vertically */
+    justify-content: space-between; /* Space items evenly */
+    padding: 10px 20px; /* Padding around the header */
+    background-color: #4CAF50; /* Header background color */
+    color: white; /* Text color */
+    flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+}
+
+.btn {
+    background-color: white; /* Button background color */
+    color: #4CAF50; /* Button text color */
+    border: #eee 2px solid; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px 15px; /* Padding inside the button */
+    cursor: pointer; /* Cursor change on hover */
+    transition: background-color 0.3s; /* Smooth background transition */
+}
+
+.btn:hover {
+    background-color: #ddd; /* Change button color on hover */
+}
+
+.title {
+    flex-grow: 1; /* Allow title to grow and take up space */
+    text-align: center; /* Center the title text */
+}
+
+.st_counter,
+.t_counter {
+    flex-shrink: 0; /* Prevent shrinking of counter elements */
+    margin-left: 10px; /* Space between counters */
+}
+.t_counter{
+    padding: 0px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+@media (max-width: 600px) {
+    .head-title {
+        flex-direction: column; /* Stack items vertically on small screens */
+        align-items: flex-start; /* Align items to the start */
+    }
+
+    .title {
+        text-align: left; /* Align title to the left */
+        width: 100%; /* Full width on small screens */
+        margin-bottom: 10px; /* Space below title */
+    }
+}
+
+main {
+    height: 100%;
+    min-height: 90vb;
+    display: grid;
+    grid-template-columns: 0.2fr 1fr 0.2fr;
+    align-items: center;
+}
+aside{
+    background-image: url(./1x/Artboard\ 1-100.jpg);
+    background-position: center;
+    background-size: cover;
+    height: 100%;
+    background-color: #eee;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    gap: 20px;
+}
+.cardWrapper {
+    place-self: center;
+    padding: 1%;
+    margin-top: 5%;
+    height: 90vb;
+    width: 600px;
+    overflow: scroll;
+    display: grid;
+    justify-content: center;
+    gap: 10px;
+}
+.card {
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    cursor: pointer;
+    border: 4px #865b22 double;
+    perspective: 1000px;
+}
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d; /* Preserve 3D space */
+}
+.card-front{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+.card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.card-front {
+    background-size: cover; 
+    background-position: center;
+}
+
+.card-back {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff; /* Change this to your desired back color */
+    transform: rotateY(0deg);/* Rotate back face */
+}
+.cardImg{
+    height: 100%;
+    width: 100%;
+    background-color: #d0d0d0;
+   }
+.flip{
+    transform: rotateY(180deg); /* Flip the card */
+}
+.animate_start {
+    animation: card_start_animation 0.3s forwards;
+}
+.card-selected{
+
+    border: #007bff 2px solid;
+}
+@keyframes card_start_animation {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+   } 
+}
+
+@keyframes flip-card {
+    50%
+    {
+        transform: rotateY(90deg);
+    }
+    100%{
+        transform: rotateY(180deg);
+    }
+}
+
+.animate{
+    animation: fade-out 0.3s forwards;
+}
+
+
+@keyframes fade-out {
+    0%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+        transform: translateY(5px);
+    }
+
+}
+@keyframes fade-in {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+.main-menu-btns{
+    position: fixed;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    gap: 10px;
+    padding: 8%;
+    background-color: #47b8ff4f;
+    backdrop-filter: blur(10px);
+    left: 50%;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    border: #a6a6a6 2px solid;
+}
+.setting_content{
+    color: #eee;
+    font-family: "Freckle Face", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 20px;
+    text-shadow: 1px 4px 1px rosybrown;
+}
+.animate_menu{
+    animation: fade-in 0.5s;
+}
+.main-btn-lock{
+    position: absolute;
+    z-index: 100;
+    background-color: #ff630f;
+    height: 100vh;
+    width: 100vw;
+}
+.win_tag{
+    align-items: center;
+    width: 100%;
+    background: #eeeeeeb3;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+}
+.time_tag{
+    font-size: 20px;
+    text-align: center;
+    
+}
+.winner{
+    margin: 0;
+    opacity: 0;
+    font-size: 30px;
+    flex: 1;
+    text-align: center;
+}
+.High_Scores{
+    display: flex;
+    width: 500px;
+    flex-direction: column;
+    padding: 10px;
+    overflow-y: scroll;
+    background-color: #007bff;
+    
+}
+#rank_table{
+    justify-items: center;
+}
+#rank_table p,i{
+    font-size: 2rem;
+    color: #fff;
+}
+.score_table tr:nth-child(even){
+    background-color: #00fbff;
+}
+.score_table,.score_table th{
+    border: #000000 1px solid;
+    border-collapse: collapse;
+    
+}
+.score_table tr,.score_table td{
+    text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* class */
+.mt-8{
+    margin-top: 8px;
+}
+.f-2{
+    font-size: 2rem;
+}
+.d-inline{
+    display: inline;
+}
