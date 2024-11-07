@@ -5,9 +5,6 @@ console.log("connected")
 //global
 let cardsSelected = 10; //default value to prevent selection
 let selected_cards = [];
-let imageArray3 = ['./Deck3/pic1.png', './Deck3/pic2.png', './Deck3/pic3.png', './Deck3/pic4.png', './Deck3/pic5.png', './Deck3/pic6.png', './Deck3/pic7.png', './Deck3/pic8.png', './Deck3/pic9.png', './Deck3/pic10.png', './Deck3/pic11.png', './Deck3/pic12.png', './Deck3/pic13.png', './Deck3/pic14.png', './Deck3/pic15.png', './Deck3/pic16.png', './Deck3/pic17.png', './Deck3/pic18.png', './Deck3/pic19.png', './Deck3/pic20.png', './Deck3/pic21.png', './Deck3/pic22.png', './Deck3/pic23.png', './Deck3/pic24.png', './Deck3/pic25.png', './Deck3/pic26.png', './Deck3/pic27.png', './Deck3/pic28.png', './Deck3/pic29.png', './Deck3/pic30.png', './Deck3/pic31.png', './Deck3/pic32.png', './Deck3/pic33.png', './Deck3/pic34.png', './Deck3/pic35.png', './Deck3/pic36.png', './Deck3/pic37.png', './Deck3/pic38.png', './Deck3/pic39.png', './Deck3/pic40.png', './Deck3/pic41.png', './Deck3/pic42.png', './Deck3/pic43.png', './Deck3/pic44.png', './Deck3/pic45.png', './Deck3/pic46.png', './Deck3/pic47.png', './Deck3/pic48.png', './Deck3/pic49.png', './Deck3/pic50.png']
-let imageArray2 = ['./Deck2/pic1.jpeg', './Deck2/pic2.jpg', './Deck2/pic3.jpg', './Deck2/pic4.jpg', './Deck2/pic5.jpeg', './Deck2/pic6.jpg', './Deck2/pic7.jpeg', './Deck2/pic8.jpeg'];
-let imageArray1 = ['./imgRes/pic1.jpg', './imgRes/pic2.jpeg', './imgRes/pic3.jpg', './imgRes/pic4.jpg', './imgRes/pic5.jpeg', './imgRes/pic6.jpg', './imgRes/pic7.jpg', './imgRes/pic8.jpg', './imgRes/pic9.jpeg', './imgRes/pic10.jpg', './imgRes/pic11.jpeg', './imgRes/pic12.jpg', './imgRes/pic13.jpg', './imgRes/pic14.jpeg', './imgRes/pic15.jpg', './imgRes/pic16.jpg', './imgRes/pic17.jpg', './imgRes/pic18.jpeg', './imgRes/pic19.jpeg', './imgRes/pic20.jpg', './imgRes/pic21.jpg', './imgRes/pic22.jpg']
 let cards_obj = [];
 let steps_counter = document.querySelector('#step_counter')
 let total_steps = 0;
@@ -17,19 +14,41 @@ let difficulty = 1;
 let card_set = 1;
 let win = 0;
 let to_win = 8; //n of cards to win level
+let ArrayImgs1;
+let ArrayImgs2;
+let ArrayImgs3;
 
 
 
-
+async function getdata(){
+    // Fetch the JSON data
+    try {
+        const response = await fetch('./Data.json');
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+        // Access the arrays from the JSON data
+        return [data.imageArray3, data.imageArray2, data.imageArray1];
+    } catch (error) {
+        console.error('There was a problem with the fetch operation:', error);
+    }
+}
+getdata().then(
+    ([Array3,Array2,Array1])=>{
+        ArrayImgs1 = Array1;
+        ArrayImgs2 = Array2;
+        ArrayImgs3 = Array3;
+    })
 
 function start_level(num) {
         //card_deck set
         cardsSelected = 10; //default value to prevent selection
         let card_deck = [];
         let card_skin;
-        if(card_set == 1){card_deck = imageArray1; card_skin="./card_back1.jpg"}
-        else if(card_set == 2){card_deck = imageArray2; card_skin="./card_back2.jpg"}
-        else{card_deck = imageArray3;card_skin="./back.png"}
+        if(card_set == 1){card_deck = ArrayImgs1; card_skin="./card_back1.jpg"}
+        else if(card_set == 2){card_deck = ArrayImgs2; card_skin="./card_back2.jpg"}
+        else{card_deck = ArrayImgs3;card_skin="./back.png"}
         //difficulty set
         if(difficulty == 1){num = 4;}
         else if(difficulty == 2){num = 6;}
@@ -37,7 +56,7 @@ function start_level(num) {
     let cardWrapper = document.createElement('div');
     cardWrapper.id = 'cardwrapper';
     cardWrapper.classList.add('cardWrapper')
-    document.querySelector('aside').insertAdjacentElement("afterend", cardWrapper);
+    document.querySelector('main').appendChild(cardWrapper);
     cardWrapper.style.gridTemplateColumns = `repeat(${num}, 1fr)`;
     cardWrapper.style.gridTemplateRows = `repeat(${num}, minmax(10px,150px))`;
 
@@ -204,15 +223,15 @@ function start() {
     let press_start = document.createElement('button');
     let press_settings = document.createElement('button');
 
-    press_start.classList.add('btn')
+    press_start.classList.add('btn-sec')
     press_start.innerText = "START";
-    press_settings.classList.add('btn')
+    press_settings.classList.add('btn-sec')
     press_settings.innerText = "SETTINGS";
 
     container.appendChild(press_start);
     container.appendChild(press_settings);
 
-    document.querySelector('aside').insertAdjacentElement("afterend", container);
+    document.querySelector('main').appendChild(container);
     press_start.addEventListener("animationend", () => {
         container.remove();
         start_level(difficulty,card_set)

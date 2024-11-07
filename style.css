@@ -36,6 +36,30 @@ body {
 .btn:hover {
     background-color: #ddd; /* Change button color on hover */
 }
+.btn-sec{ 
+    width: 50%;   
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #4caf50;
+    padding: 16px 24px;
+    background-color: #f8f8f8;
+    border: 3px solid;
+    border-image: linear-gradient(45deg, #27f106, #31cb6c);
+    border-image-slice: 1;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+
+}
+.btn-sec:hover {
+    background-color: #2a2a2a; /* Slightly lighter on hover */
+    transform: scale(1.05); /* Grow slightly on hover */
+}
+  
+.btn-sec:active {
+transform: scale(0.98); /* Pressed effect */
+}
 
 .title {
     flex-grow: 1; /* Allow title to grow and take up space */
@@ -47,10 +71,46 @@ body {
     flex-shrink: 0; /* Prevent shrinking of counter elements */
     margin-left: 10px; /* Space between counters */
 }
-.t_counter{
+.st_counter{
+    text-align: center;
+    font-family: "Barriecito", system-ui;
+    font-style: normal;
+    font-weight: 300;
+    width: 60%;
+    color: #5aaa5c;
+    border: 2px green solid;
+    border-radius: 10px;
     padding: 0px;
     margin-top: 0;
     margin-bottom: 0;
+}
+.t_counter{
+    font-family: "Barriecito", system-ui;
+    font-style: normal;
+    font-weight: 300;
+    color: #5aaa5c;
+    width: 60%;
+    border: 2px green solid;
+    border-radius: 10px;
+    padding: 5px;
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+.ui{
+    justify-self: center;
+    width: 200px;
+    height: 50%;
+    background-image: url(./Untitled\ design.jpg);
+    align-content: center;
+    justify-items: center;
+    border: 5px solid #5aaa5c;
+    border-radius: 20px;
+    box-shadow: 0px 5px 30px #00ffa4;
+    border-image-slice: 1;
+    background-size: cover;
+}
+#time_counter{
+    font-size:30px ;
 }
 @media (max-width: 600px) {
     .head-title {
@@ -69,21 +129,14 @@ main {
     height: 100%;
     min-height: 90vb;
     display: grid;
-    grid-template-columns: 0.2fr 1fr 0.2fr;
+    grid-template-columns: 0.5fr 1fr;
     align-items: center;
 }
-aside{
-    background-image: url(./1x/Artboard\ 1-100.jpg);
-    background-position: center;
-    background-size: cover;
-    height: 100%;
-    background-color: #eee;
-}
+
 .container{
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-content: center;
+    align-items: center;
     gap: 20px;
 }
 .cardWrapper {
@@ -239,7 +292,7 @@ aside{
     flex-direction: column;
 }
 .time_tag{
-    font-size: 20px;
+    font-size: 30px;
     text-align: center;
     
 }
