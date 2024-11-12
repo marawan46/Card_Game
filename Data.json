@@ -5,23 +5,33 @@
           "./Deck3/pic6.png", "./Deck3/pic7.png", "./Deck3/pic8.png", "./Deck3/pic9.png", "./Deck3/pic10.png",
           "./Deck3/pic11.png", "./Deck3/pic12.png", "./Deck3/pic13.png", "./Deck3/pic14.png", "./Deck3/pic15.png",
           "./Deck3/pic16.png", "./Deck3/pic17.png", "./Deck3/pic18.png", "./Deck3/pic19.png", "./Deck3/pic20.png",
-          "./Deck3/pic21.png", "./Deck3/pic22.png", "./Deck3/pic23.png", "./Deck3/pic24.png", "./Deck3/pic25.png",
+          "./Deck3/pic21.png", "./Deck3/pic22.jpg", "./Deck3/pic23.png", "./Deck3/pic24.png", "./Deck3/pic25.png",
           "./Deck3/pic26.png", "./Deck3/pic27.png", "./Deck3/pic28.png", "./Deck3/pic29.png", "./Deck3/pic30.png",
           "./Deck3/pic31.png", "./Deck3/pic32.png", "./Deck3/pic33.png", "./Deck3/pic34.png", "./Deck3/pic35.png",
           "./Deck3/pic36.png", "./Deck3/pic37.png", "./Deck3/pic38.png", "./Deck3/pic39.png", "./Deck3/pic40.png",
           "./Deck3/pic41.png", "./Deck3/pic42.png", "./Deck3/pic43.png", "./Deck3/pic44.png", "./Deck3/pic45.png",
           "./Deck3/pic46.png", "./Deck3/pic47.png", "./Deck3/pic48.png", "./Deck3/pic49.png", "./Deck3/pic50.png"
         ],
-        "imageArray2": [
-          "./Deck2/pic1.jpeg", "./Deck2/pic2.jpg", "./Deck2/pic3.jpg", "./Deck2/pic4.jpg", "./Deck2/pic5.jpeg",
-          "./Deck2/pic6.jpg", "./Deck2/pic7.jpeg", "./Deck2/pic8.jpeg"
-        ],
+        "imageArray2": 
+        [
+          "./Deck2/pic1.jpeg", "./Deck2/pic2.jpeg", "./Deck2/pic3.jpeg", "./Deck2/pic4.jpeg", 
+          "./Deck2/pic5.jpeg", "./Deck2/pic6.jpeg", "./Deck2/pic7.jpeg", "./Deck2/pic8.jpeg", 
+          "./Deck2/pic9.jpeg", "./Deck2/pic10.jpeg", "./Deck2/pic11.jpeg", "./Deck2/pic12.jpeg", 
+          "./Deck2/pic13.jpeg", "./Deck2/pic14.jpeg", "./Deck2/pic15.jpeg", "./Deck2/pic16.jpeg", 
+          "./Deck2/pic17.jpeg", "./Deck2/pic18.jpeg", "./Deck2/pic19.jpeg", "./Deck2/pic20.jpeg", 
+          "./Deck2/pic21.jpeg", "./Deck2/pic22.jpeg","./Deck2/pic23.jpeg",
+          "./Deck2/pic24.jpeg","./Deck2/pic25.jpeg","./Deck2/pic26.jpeg",
+          "./Deck2/pic27.jpeg","./Deck2/pic28.jpeg","./Deck2/pic29.jpeg"
+          ,"./Deck2/pic30.jpeg","./Deck2/pic31.jpeg","./Deck2/pic32.jpeg",
+          "./Deck2/pic33.jpeg"
+      ]      
+        ,
         "imageArray1": [
-          "./imgRes/pic1.jpg", "./imgRes/pic2.jpeg", "./imgRes/pic3.jpg", "./imgRes/pic4.jpg", "./imgRes/pic5.jpeg",
-          "./imgRes/pic6.jpg", "./imgRes/pic7.jpg", "./imgRes/pic8.jpg", "./imgRes/pic9.jpeg", "./imgRes/pic10.jpg",
-          "./imgRes/pic11.jpeg", "./imgRes/pic12.jpg", "./imgRes/pic13.jpg", "./imgRes/pic14.jpeg", "./imgRes/pic15.jpg",
-          "./imgRes/pic16.jpg", "./imgRes/pic17.jpg", "./imgRes/pic18.jpeg", "./imgRes/pic19.jpeg", "./imgRes/pic20.jpg",
-          "./imgRes/pic21.jpg", "./imgRes/pic22.jpg"
+          "./Deck1/pic11.jpeg", "./Deck1/pic12.jpg","./Deck1/pic1.jpg" ,"./Deck1/pic13.jpg", "./Deck1/pic14.jpeg", "./Deck1/pic15.jpg",
+          "./Deck1/pic16.jpg", "./Deck1/pic17.jpg", "./Deck1/pic18.jpeg", "./Deck1/pic19.jpeg", "./Deck1/pic20.jpg",
+          "./Deck1/pic21.jpg", "./Deck1/pic22.jpeg",
+          "./Deck1/pic2.jpeg", "./Deck1/pic3.jpg", "./Deck1/pic4.jpg", "./Deck1/pic5.jpeg",
+          "./Deck1/pic6.jpg", "./Deck1/pic7.jpg", "./Deck1/pic8.jpg", "./Deck1/pic9.jpeg", "./Deck1/pic10.jpg"
         ]
       
       
