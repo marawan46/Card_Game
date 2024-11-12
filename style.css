@@ -98,13 +98,13 @@ transform: scale(0.98); /* Pressed effect */
 }
 .ui{
     justify-self: center;
-    width: 200px;
-    height: 50%;
-    background-image: url(./Untitled\ design.jpg);
+    aspect-ratio: 4/5;
+    height: 400px;
     align-content: center;
     justify-items: center;
     border: 5px solid #5aaa5c;
-    border-radius: 20px;
+    background-color: #000000;
+    border-radius: 26px;
     box-shadow: 0px 5px 30px #00ffa4;
     border-image-slice: 1;
     background-size: cover;
@@ -126,13 +126,29 @@ transform: scale(0.98); /* Pressed effect */
 }
 
 main {
-    height: 100%;
-    min-height: 90vb;
+    height: 80vb;
+    margin-bottom: 5%;
     display: grid;
     grid-template-columns: 0.5fr 1fr;
     align-items: center;
-}
 
+}
+@media (max-width:420px) {
+    main{
+        height: 90vb;
+        grid-template-columns: 1fr;
+        grid-template-rows:0.5fr 1fr;
+    }
+    .ui{
+        aspect-ratio: 2/1;
+        height: 130px;
+        display: flex;
+        align-items: center;
+    }
+    .st_counter{
+        width: 30%;
+    }
+}
 .container{
     display: flex;
     flex-direction: column;
@@ -140,11 +156,11 @@ main {
     gap: 20px;
 }
 .cardWrapper {
-    place-self: center;
+    aspect-ratio: 9/10; 
+    place-self: center;   
     padding: 1%;
     margin-top: 5%;
-    height: 90vb;
-    width: 600px;
+    height: 100%;
     overflow: scroll;
     display: grid;
     justify-content: center;
@@ -248,11 +264,13 @@ main {
     }
 }
 .main-menu-btns{
+    aspect-ratio: 1/1;
+    height: 50%;
     position: fixed;
     transform: translate(-50%, -50%);
     top: 50%;
     gap: 10px;
-    padding: 8%;
+    padding: 4%;
     background-color: #47b8ff4f;
     backdrop-filter: blur(10px);
     left: 50%;
@@ -261,15 +279,73 @@ main {
     flex-direction: column;
     border-radius: 10px;
     border: #a6a6a6 2px solid;
+    justify-content: center;
 }
-.setting_content{
-    color: #eee;
-    font-family: "Freckle Face", system-ui;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 20px;
-    text-shadow: 1px 4px 1px rosybrown;
+/* General settings for the container */
+.setting_content {
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+    color: #333;
 }
+
+/* Styling for section titles (Difficulty, Card Set) */
+.setting_content p {
+    font-weight: bold;
+    font-size: 1.1em;
+    margin: 10px 0;
+    color: #555;
+}
+
+/* Fieldset styling for grouping radio buttons */
+.setting_content fieldset {
+    display: flex;
+    gap: 15px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Styling for radio buttons */
+.setting_content input[type="radio"] {
+    accent-color: #4a90e2; /* Primary color for radio selection */
+    margin-right: 5px;
+    transform: scale(1.2); /* Slightly larger radio button */
+}
+
+/* Styling for labels (Easy, Medium, Hard, Set 1, etc.) */
+.setting_content fieldset label {
+    margin: 0;
+    font-weight: normal;
+    color: #333;
+    cursor: pointer;
+}
+
+/* Button styling */
+.setting_content .btn {
+    width: 100%;
+    padding: 10px;
+    margin-top: 15px;
+    background-color: #4a90e2;
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.setting_content .btn:hover {
+    background-color: #357ABD;
+}
+
 .animate_menu{
     animation: fade-in 0.5s;
 }
@@ -305,7 +381,7 @@ main {
 }
 .High_Scores{
     display: flex;
-    width: 500px;
+    width: 50%;
     flex-direction: column;
     padding: 10px;
     overflow-y: scroll;

@@ -17,8 +17,8 @@ let to_win = 8; //n of cards to win level
 let ArrayImgs1;
 let ArrayImgs2;
 let ArrayImgs3;
-
-
+let in_game = false;
+let cachSec = 0;
 
 async function getdata(){
     // Fetch the JSON data
@@ -43,25 +43,25 @@ getdata().then(
 
 function start_level(num) {
         //card_deck set
+        in_game = true;
         cardsSelected = 10; //default value to prevent selection
         let card_deck = [];
         let card_skin;
-        if(card_set == 1){card_deck = ArrayImgs1; card_skin="./card_back1.jpg"}
-        else if(card_set == 2){card_deck = ArrayImgs2; card_skin="./card_back2.jpg"}
-        else{card_deck = ArrayImgs3;card_skin="./back.png"}
+        if(card_set == 1){card_deck = ArrayImgs1; card_skin="./card_back1.jpg";}
+        else if(card_set == 2){card_deck = ArrayImgs2; card_skin="./card_back22.jpeg";}
+        else{card_deck = ArrayImgs3;card_skin="./back.png";}
         //difficulty set
-        if(difficulty == 1){num = 4;}
-        else if(difficulty == 2){num = 6;}
-        else{num = 8;}
+        if(difficulty == 1){num = 4;to_win=8;}
+        else if(difficulty == 2){num = 6;to_win=18;}
+        else{num = 8;to_win=32;}
     let cardWrapper = document.createElement('div');
     cardWrapper.id = 'cardwrapper';
     cardWrapper.classList.add('cardWrapper')
     document.querySelector('main').appendChild(cardWrapper);
     cardWrapper.style.gridTemplateColumns = `repeat(${num}, 1fr)`;
-    cardWrapper.style.gridTemplateRows = `repeat(${num}, minmax(10px,150px))`;
+    cardWrapper.style.gridTemplateRows = `repeat(${num}, 1fr)`;
 
-            //shuffle
-            shuffleArray(card_set);
+
     for (let i = 0; i < num * num / 2; i++) {
         // Create the main card div
         const card = document.createElement('div');
@@ -114,7 +114,7 @@ function start_level(num) {
     //----------------------------------------------
     //add animationend listener
     cardWrapper.lastChild.addEventListener("animationend", () => {
-        [timerId, TimeNode] = StartTimer();
+        [timerId, TimeNode] = StartTimer(0);
         handleAnimationEnd()
     })
 
@@ -128,7 +128,7 @@ function start_level(num) {
 // Function to shuffle an array
 function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
+        const j = Math.floor(Math.random() * (i));
         [array[i], array[j]] = [array[j], array[i]]; // Swap elements
     }
 }
@@ -202,22 +202,25 @@ function del(btn) {
     })
 
 }
-function StartTimer() {
+function StartTimer(sec) {
     const timerNode = document.querySelector('#time_counter')
-    let seconds = 0
+    let seconds = sec;
     let time;
     if (timerNode) {
         time = setInterval(() => {
-            let minutes = Math.floor(seconds / 60).toString().padStart(2, "00");
-            let remainingSec = (seconds % 60).toString().padStart(2, "00");
-            timerNode.innerText = `${minutes}:${remainingSec}`
+            let minutes = Math.floor(seconds / 60).toString().padStart(2, '0');
+            let remainingSec = (seconds % 60).toString().padStart(2, '0');
+            timerNode.innerText = `${minutes}:${remainingSec}`;
             seconds++
+            cachSec = seconds;
         }, 1000)
     }
     //return time interval and time node
     return [time, timerNode];
 }
 function start() {
+    cachSec = 0;
+    in_game = false;
     let container = document.createElement('div');
     container.className = "container";
     let press_start = document.createElement('button');
@@ -293,9 +296,11 @@ function createWinTag(totalSteps = 0, time = 0) {
 }
 
 function build_menu() {
+    if(!document.querySelector(".main-menu-btns") && in_game){
     const mainDiv = document.createElement('div');
     mainDiv.classList.add('main-menu-btns');
-
+    //Puase The game time   
+        clearInterval(timerId);
     const buttonNames = ['resume', 'settings', 'Exit'];
     buttonNames.forEach(name => {
         const button = document.createElement('button');
@@ -323,6 +328,7 @@ function build_menu() {
         }
         else {
             button.addEventListener('click', () => {
+                [timerId,TimeNode] = StartTimer(cachSec);
                 triggerFadeOut(mainDiv);;
             })
         }
@@ -332,7 +338,7 @@ function build_menu() {
     document.body.appendChild(mainDiv);
     triggerFadeIn(mainDiv);
 
-
+    }
 }
 function buildSettingMenu() {
 
